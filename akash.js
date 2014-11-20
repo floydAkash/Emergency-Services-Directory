@@ -632,7 +632,8 @@ function showResults() {
           }
           x += "<tr>";
           x += "<td>" + $('type', this).text() + "</td>";
-          x += "<td id='ajax' onclick='getTabs(" + $(this).find('OrganizationID').text() + ");'>" + $('Name', this).text() + "</td>";
+          /*x += "<td id='ajax' onclick='getTabs(" + $(this).find('OrganizationID').text() + ");'>" + $('Name', this).text() + "</td>";*/
+          x += "<td id='ajax'>" + "<a href='javascript:getTabs(" + $(this).find('OrganizationID').text() + ")'>" + $('Name', this).text() + "</a>" + "</td>";
           x += "<td>" + $('city', this).text() + "</td>";
           x += "<td>" + $('CountyName', this).text() + "</td>";
           x += "<td>" + $('State', this).text() + "</td>";
@@ -666,5 +667,7 @@ function clearAll() {
 
 /*Function executed onload */
 $(function () {
+  console.log('LocalStorage:' + localStorage.getItem('color'));
+  $('#color').css("backgroundColor", localStorage.getItem('color'));
   getOrgTypes();
 });
